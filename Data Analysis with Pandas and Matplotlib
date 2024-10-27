@@ -1,0 +1,20 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load CSV file into DataFrame
+df = pd.read_csv('data.csv')
+
+# Data cleaning - handling missing values
+df.fillna(method='ffill', inplace=True)
+
+# Basic data analysis
+print("Descriptive statistics:\n", df.describe())
+
+# Visualize data
+plt.figure(figsize=(10, 6))
+plt.plot(df['Date'], df['Sales'], label='Sales Over Time')
+plt.xlabel('Date')
+plt.ylabel('Sales')
+plt.title('Sales Data Over Time')
+plt.legend()
+plt.show()
